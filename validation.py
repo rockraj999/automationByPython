@@ -2,7 +2,7 @@ import os
 import datetime
 
 
-def getProdPrice():
+def getProdPrice():                                                       # reading product master file to get data
     prod_price = {}
     with open('../master_data/product_master.csv') as f:
         lines = f.readlines()[1:]
@@ -42,9 +42,3 @@ def validate_city(val):
         return True
     return False
 
-
-# val_pid = v.validate_product_id(split_list[2])
-#                             val_od = v.validate_order_date(split_list[1])
-#                             val_city = v.validate_city(split_list[5])
-#                             val_empty = v.validate_emptiness(split_list)
-#                             val_sales = v.validate_sales(split_list[3], split_list[4])
