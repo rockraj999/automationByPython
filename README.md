@@ -2,7 +2,7 @@
 
 ## Automated Transaction/Order File Validation System
 
-###Project Overview:
+### Project Overview:
 The Automated Transaction/Order File Validation System is a Python-based solution that automates the validation process for transaction/order files received from a mart. The system applies predefined rules to ensure data accuracy and compliance with business requirements. By leveraging Python and pandas, the project streamlines the validation process, reduces manual efforts, save time, and improves data quality assurance.
 
 ### Technical skills:
