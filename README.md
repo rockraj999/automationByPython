@@ -32,7 +32,10 @@ The Automated Transaction/Order File Validation System is a Python-based solutio
    if any single orders validation fails then full file should be rejected and go to Mart->rejectedFiles->YYYYMMDD folder
    for each rejected file one more file should be created(file_name_error.csv) in the same folder. and in this file only those order 
    records will be there which failed the validation along with reason of rejection in reason column.
-8. after processing an email should be sent to business which specify total file processed, success files and rejected files.  
+8. after processing an email should be sent to business which specify total file processed, success files and rejected files.
+
+### Results and Impact:
+By implementing the Automated Transaction/Order File Validation System, significant improvements can be achieved in terms of time savings, accuracy, and data quality assurance. The automation has reduced manual efforts required for validation, enhanced the efficiency of the process, and provided consistent and reliable validation results. Errors or anomalies are quickly identified and reported, allowing timely corrective actions and ensuring the integrity of the transaction/order data.
 
 
 
