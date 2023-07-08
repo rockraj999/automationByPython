@@ -18,11 +18,11 @@ The Automated Transaction/Order File Validation System is a Python-based solutio
    Read all thefilese from the folder Mart->incomingFiles->YYYYMMDD folder
 2. Data Loading: The files are loaded into a dictionary/list or pandas df for further processing.
 3. Rule Application: Predefined rules are applied to the transaction/order data. These rules check for the following: 
-   valid product_id - product_id should be present in product master table.
-   valid order_date - order_date should not be in future.
-   emptiness - all field should not be empty
-   valid city - orders should be from Mumbai and Banglore only.
-   valid sale calculation - total sale amount should be product price from product master table*quantity.
+   * valid product_id - product_id should be present in product master table.
+   * valid order_date - order_date should not be in future.
+   * emptiness - all field should not be empty
+   * valid city - orders should be from Mumbai and Banglore only.
+   * valid sale calculation - total sale amount should be product price from product master table*quantity.
      
 4. Data Validation: To validate the rule I created a validation module where the code performs data checks, flagging any discrepancies or violations of the predefined rules within the transaction/order files.
 5. Error Reporting: Validation files are generated, highlighting the identified errors or anomalies against each row. The file provide detailed information about the errors, such as the affected rows and specific rule violations.
