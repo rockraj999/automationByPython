@@ -17,22 +17,22 @@ def main():
         rejected_path = f'../rejectedFiles/{today_date}'
         total_file = len(os.listdir(incoming_file))
 
-        if total_file > 0:
+        if total_file > 0:                                                     # cheking if no file for today then no need to run
             success_cnt = 0
             reject_cnt = 0
 
-            for file in os.listdir(incoming_file):
+            for file in os.listdir(incoming_file):                             # iterating over files in todays foilder
                 with open(f'{incoming_file}/{file}') as f:
                     line = f.readlines()[1:]
                     rows = []
                     con_t_list = []
 
-                    if len(line) > 0:
+                    if len(line) > 0:                                          # in file if no data then no nrrd to process the file
                         for i in line:
                             split_list = i.split(',')
                             split_list[5] = split_list[5][:-1]
                             split_list.append("")
-                            con_t = 0
+                            con_t = 0                                          # it account true condition for each rows  
 
                             def addStr(s):
                                 if split_list[6]:
@@ -40,14 +40,14 @@ def main():
                                 else:
                                     split_list[6] = s
 
-                            val_pid = v.validate_product_id(split_list[2])
+                            val_pid = v.validate_product_id(split_list[2])             # calling these fun and in return getting T/F
                             val_od = v.validate_order_date(split_list[1])
                             val_city = v.validate_city(split_list[5])
                             val_empty = v.validate_emptiness(split_list)
                             val_sales = v.validate_sales(split_list[2], split_list[3], split_list[4])
 
-                            if val_pid:
-                                con_t += 1
+                            if val_pid:                                                 # if validation gives True then increasing con_t 
+                                con_t += 1                                               # else recording reason for wrong validation 
                             else:
                                 addStr(f"Invalid product id {split_list[2]}")
                             if val_empty:
@@ -67,7 +67,7 @@ def main():
                             else:
                                 addStr(f'Invalid Sales calculation.')
 
-                            con_t_list.append(con_t)
+                            con_t_list.append(con_t)                              # con_t_list var, it helps to determine if fileis success or failed
                             if con_t < 5:
                                 rows.append(split_list)
 
@@ -96,13 +96,13 @@ def main():
                         with open(f'{rejected_path}/error_{file}', 'w', newline='') as z:
                             z.write('Empty_file')
 
-            # else:
-            #     body = f"""
-            #     Total Files: {total_file} \n
-            #     Successful Files: {success_cnt} \n
-            #     Rejected Files: {reject_cnt}
-            #     """
-            #     ms.sendmail(subject, body)
+            else:
+                body = f"""
+                Total Files: {total_file} \n
+                Successful Files: {success_cnt} \n
+                Rejected Files: {reject_cnt}
+                """
+                ms.sendmail(subject, body)
 
         else:
             print("no files present")
